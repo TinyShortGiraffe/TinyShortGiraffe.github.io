@@ -7,12 +7,15 @@ class BoxCollider {
     Collide(t){
         switch (typeof t){
             case BoxCollider:
-
                 return;
             case CircleCollider:
-
                 return;
         }
+    }
+    debugDraw(){
+        nofill();
+        stroke(0);
+        rect(pos.x, pos.y, w, h);
     }
 }
 
@@ -24,11 +27,14 @@ class CircleCollider {
     Collide(t){
         switch (typeof t){
             case BoxCollider:
-
-                return;
+                return t.Collide(this);
             case CircleCollider:
-
-                return;
+                return dist(pos, t.pos) < r + t.r;
         }
+    }
+    debugDraw(){
+        nofill();
+        stroke(0);
+        circle(pos.x, pos.y, r);
     }
 }
