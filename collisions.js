@@ -1,3 +1,4 @@
+//import dist from "untils.js"
 class BoxCollider {
     constructor(pos, w, h){
         this.pos = pos;
@@ -13,7 +14,7 @@ class BoxCollider {
         }
     }
     debugDraw(){
-        nofill();
+        noFill();
         stroke(0);
         rect(pos.x, pos.y, w, h);
     }
@@ -25,16 +26,15 @@ class CircleCollider {
         this.pos = pos;
     }
     Collide(t){
-        switch (typeof t){
-            case BoxCollider:
-                return t.Collide(this);
-            case CircleCollider:
-                return dist(pos, t.pos) < r + t.r;
+        if(t instanceof BoxCollider){
+            return t.Collide(this);
+        }else if (t instanceof CircleCollider){
+            return distance(this.pos, t.pos) < this.r + t.r;
         }
     }
     debugDraw(){
-        nofill();
+        noFill();
         stroke(0);
-        circle(pos.x, pos.y, r);
+        circle(this.pos.x, this.pos.y, this.r * 2);
     }
 }

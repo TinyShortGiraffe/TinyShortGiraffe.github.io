@@ -1,4 +1,4 @@
-class pos {
+class Pos {
     constructor(x, y){
         this.x = x;
         this.y = y;
@@ -11,6 +11,6 @@ function dist2(p1, p2){
     return (xc * xc) + (yc * yc);
 }
 
-function dist(p1, p2){
+function distance(p1, p2){
     return Math.sqrt(dist2(p1, p2));
 }
