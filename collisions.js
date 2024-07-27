@@ -22,7 +22,6 @@ class BoxCollider {
             return true;
 
         }else if (o instanceof CircleCollider){
-            console.log("AH")
             let outL = this.pos.x - o.r;
             let outR = this.pos.x + this.w + o.r;
             let outT = this.pos.y - o.r;
@@ -30,7 +29,6 @@ class BoxCollider {
             let innerX = false;
             let outerX = false;
             
-            console.log(outL, outR)
             if(o.pos.x < this.pos.x + this.w){
                 if(o.pos.x > this.pos.x){
                     innerX = true;
@@ -61,8 +59,6 @@ class BoxCollider {
                 }
             }
             outerY = outerY || innerY;
-            console.log(outerX, outerY)
-            console.log(innerX, innerY)
             if((innerX && outerY) || (outerX && innerY)){
                 return true;
             }
