@@ -1,11 +1,22 @@
 x = 0;
 y = 0;
+
+let tiles = [];
+
+function preload(){
+  atlas = loadImage("assets/wallBot.png");
+}
+
 function setup() {
   createCanvas(400, 400);
+  tiles = deAtlas(atlas, 1, 1, 16, 16)
 }
 
 function draw() {
+  noSmooth();
+  scale(20.0)
   background(220);
+  displayTileSet(16, 16)
   fill(0,0,255);
   mp = new Pos(mouseX, mouseY);
   circle(mp.x, mp.y, 50);
